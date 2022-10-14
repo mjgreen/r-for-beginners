@@ -2,12 +2,12 @@
 title: "R for beginners"
 author: Matt Green
 date: "`r Sys.Date()`"
-# format: 
-#   revealjs:
-#     transition: slide
-#     background-transition: fade
-#     transition-speed: default
-format: html
+format:
+  revealjs:
+    transition: slide
+    background-transition: fade
+    transition-speed: default
+#format: html
 ---
 
 # Folders
