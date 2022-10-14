@@ -1,0 +1,95 @@
+---
+title: "R for beginners"
+author: Matt Green
+date: "`r Sys.Date()`"
+# format: 
+#   revealjs:
+#     transition: slide
+#     background-transition: fade
+#     transition-speed: default
+format: html
+---
+
+# Folders
+
+Make a folder to contain your work
+
+1. Make folder to work in
+2. Open Rstudio
+3. Set working directory
+    * Session >> Set Working Directory >> Choose Directory
+    
+::: {.notes}
+Speaker notes go here.
+:::
+
+# Console
+
+The console is where you communicate with R
+
+- do some work in the console (assignment)
+- environment pane shows variables
+- history with the up and down arrows
+- CTRL + L to clear the console
+
+# Scripts
+
+Store instructions and explanations
+
+<!-- A Script is a file containing a sequence of instructions to R and optionally comments for human readers -->
+
+- make a new file: File >> New File >> R Script
+- retrieve work from the console using history
+- copy and paste work into a file
+- step through file line by line: CTRL + ENTER
+- annotate script with comments
+
+# Files - point and click
+
+Access data using point and click
+
+- download a data file __sleep_data.csv__
+- copy it into the working directory
+- see that it appears in the Files pane
+- Click Import, see import menu, do import
+- See that the data are now in scope: visible in Environment pane; accessible to the Console
+
+# Files - programmatic
+
+Access data programmatically using `read_csv()`
+
+- Click Import, see import menu
+- Use copy button in import menu to get the auto-generated import code
+- paste auto-generated code into your script
+- step through script
+
+```{r eval=F, echo=F}
+library(readr)
+sleep_data <- read_csv("sleep_data.csv")
+View(sleep_data)
+```
+
+# Projects
+- close RStudio
+- open RStudio
+- Projects >> New Project >> Existing directory >> browse to folder >> enter
+- close RStudio
+- open RStudio
+- Now the Projects dropdown has a menu entry for your Project
+- no need to set working directory
+    - See that the Console is now in the right place 
+    - See that Files is in the right place
+
+
+# Functions
+- start typing `rnorm(`
+
+```{r child = 'ideas.Rmd'}
+```
+
+```{r child = 'resources.Rmd'}
+```
+
+
+
+

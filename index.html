@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matt Green">
+<meta name="dcterms.date" content="2022-10-14">
+
+<title>R for beginners</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">R for beginners</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Matt Green </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 14, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="folders" class="level1">
+<h1>Folders</h1>
+<p>Make a folder to contain your work</p>
+<ol type="1">
+<li>Make folder to work in</li>
+<li>Open Rstudio</li>
+<li>Set working directory
+<ul>
+<li>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</li>
+</ul></li>
+</ol>
+<div class="notes">
+<p>Speaker notes go here.</p>
+</div>
+</section>
+<section id="console" class="level1">
+<h1>Console</h1>
+<p>The console is where you communicate with R</p>
+<ul>
+<li>do some work in the console (assignment)</li>
+<li>environment pane shows variables</li>
+<li>history with the up and down arrows</li>
+<li>CTRL + L to clear the console</li>
+</ul>
+</section>
+<section id="scripts" class="level1">
+<h1>Scripts</h1>
+<p>Store instructions and explanations</p>
+<!-- A Script is a file containing a sequence of instructions to R and optionally comments for human readers -->
+<ul>
+<li>make a new file: File &gt;&gt; New File &gt;&gt; R Script</li>
+<li>retrieve work from the console using history</li>
+<li>copy and paste work into a file</li>
+<li>step through file line by line: CTRL + ENTER</li>
+<li>annotate script with comments</li>
+</ul>
+</section>
+<section id="files---point-and-click" class="level1">
+<h1>Files - point and click</h1>
+<p>Access data using point and click</p>
+<ul>
+<li>download a data file <strong>sleep_data.csv</strong></li>
+<li>copy it into the working directory</li>
+<li>see that it appears in the Files pane</li>
+<li>Click Import, see import menu, do import</li>
+<li>See that the data are now in scope: visible in Environment pane; accessible to the Console</li>
+</ul>
+</section>
+<section id="files---programmatic" class="level1">
+<h1>Files - programmatic</h1>
+<p>Access data programmatically using <code>read_csv()</code></p>
+<ul>
+<li>Click Import, see import menu</li>
+<li>Use copy button in import menu to get the auto-generated import code</li>
+<li>paste auto-generated code into your script</li>
+<li>step through script</li>
+</ul>
+<div class="cell">
+
+</div>
+</section>
+<section id="projects" class="level1">
+<h1>Projects</h1>
+<ul>
+<li>close RStudio</li>
+<li>open RStudio</li>
+<li>Projects &gt;&gt; New Project &gt;&gt; Existing directory &gt;&gt; browse to folder &gt;&gt; enter</li>
+<li>close RStudio</li>
+<li>open RStudio</li>
+<li>Now the Projects dropdown has a menu entry for your Project</li>
+<li>no need to set working directory
+<ul>
+<li>See that the Console is now in the right place</li>
+<li>See that Files is in the right place</li>
+</ul></li>
+</ul>
+</section>
+<section id="functions" class="level1">
+<h1>Functions</h1>
+<ul>
+<li>start typing <code>rnorm(</code></li>
+</ul>
+</section>
+<section id="ideas" class="level1">
+<h1>Ideas</h1>
+<ul>
+<li><p>the alternative is point and click: point and click sequences are harder to reproduce (check / edit / get help with) than files with lines of code.</p></li>
+<li><p>pipeline - single tool for pre-processing, analysis, plots, tables, documentation</p></li>
+<li><p>tab-completion</p></li>
+<li><p>data science: programming skills, data visualisation, data wrangling and reproducible reports</p></li>
+<li><p>? and help, documentation, how to access it</p></li>
+<li><p>working directory and Rprojects</p>
+<ul>
+<li>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</li>
+</ul></li>
+</ul>
+</section>
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<ul>
+<li><p>https://psyteachr.github.io/</p></li>
+<li><p>https://psyteachr.github.io/data-skills-v1/programming-basics.html</p></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

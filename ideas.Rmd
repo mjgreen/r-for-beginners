@@ -1,0 +1,16 @@
+# Ideas
+
+- the alternative is point and click: point and click sequences are harder to reproduce (check / edit / get help with) than files with lines of code.
+
+- pipeline - single tool for pre-processing, analysis, plots, tables, documentation
+
+- tab-completion
+
+- data science: programming skills, data visualisation, data wrangling and reproducible reports
+
+
+- ? and help, documentation, how to access it
+
+- working directory and Rprojects
+
+  - Session >> Set Working Directory >> Choose Directory
