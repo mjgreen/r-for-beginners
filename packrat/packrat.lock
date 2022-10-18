@@ -450,6 +450,12 @@ Version: 1.1-4
 Hash: a645bede230e2384acf227d55b270b77
 Requires: sp
 
+Package: markdown
+Source: CRAN
+Version: 1.1
+Hash: 1b6a18fd395589425e338a47b999099f
+Requires: mime, xfun
+
 Package: memoise
 Source: CRAN
 Version: 2.0.1
