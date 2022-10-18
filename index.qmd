@@ -1,5 +1,7 @@
 ---
 title: "R for beginners"
+execute:
+  echo: true
 author: Matt Green
 date: "`r Sys.Date()`"
 format:
@@ -7,8 +9,17 @@ format:
     transition: slide
     background-transition: fade
     transition-speed: default
+    #incremental: true
 #format: html
 ---
+
+```{r, include=FALSE}
+library(tidyverse)
+library(report)
+library(knitr)
+library(apaTables)
+```
+
 
 # Folders
 
@@ -36,23 +47,43 @@ The console is where you communicate with R
 
 Store instructions and explanations
 
-<!-- A Script is a file containing a sequence of instructions to R and optionally comments for human readers -->
 
+:::{.semi-fade-out}
 - make a new file: File >> New File >> R Script
+:::
 - retrieve work from the console using history
 - copy and paste work into a file
+- save
 - step through file line by line: CTRL + ENTER
 - annotate script with comments
+
 
 # Files - point and click
 
 Access data using point and click
 
-- download a data file __sleep_data.csv__
+- download a data file - click [__sleep_data.csv__](https://mjgreen.github.io/r-for-beginners/sleep_data.csv)
 - copy it into the working directory
 - see that it appears in the Files pane
 - Click Import, see import menu, do import
 - See that the data are now in scope: visible in Environment pane; accessible to the Console
+
+# Variable _in scope_
+
+`ls()` lists variables that the Console can `see'
+
+```{r, echo=F, message=F}
+sleep_data <- read_csv("sleep_data.csv", show_col_types = FALSE)
+```
+
+
+```{r, echo=TRUE, eval=TRUE}
+ls()
+```
+
+The Environment pane shows variables that the Console can `see'
+
+![](var-in-scope.png)
 
 # Files - programmatic
 
@@ -63,18 +94,91 @@ Access data programmatically using `read_csv()`
 - paste auto-generated code into your script
 - step through script
 
-```{r eval=F, echo=F}
+# Files - programmatic
+
+```{r eval=1:2, echo=T, message=F}
 library(readr)
 sleep_data <- read_csv("sleep_data.csv")
 View(sleep_data)
 ```
 
+# Raw data in Console
+
+Just type the name
+
+```{r}
+sleep_data
+```
+
+# Raw data in Viewer
+
+Use `View()`
+
+```{r, echo=T, eval=F}
+View(sleep_data)
+```
+
+![](raw-data-viewer.png)
+
+# plot
+
+Exploratory plot
+
+```{r, echo=T}
+boxplot(extra ~ group, data = sleep_data)
+```
+
+# t.test
+
+Run a t.test on the sleep data
+
+```{r, echo=T}
+t.test(extra ~ group, data = sleep_data)
+```
+
+# report
+
+Automated body text
+
+```{r, echo=T}
+sleep_t_test = t.test(extra ~ group, data = sleep_data)
+report(sleep_t_test)
+```
+
+# report
+
+Automated table (short version)
+
+```{r, echo=TRUE}
+summary(report_table(sleep_t_test))
+```
+
+# report
+
+Automated table (long version)
+
+```{r, echo=T, eval=T}
+kable(report_table(sleep_t_test))
+```
+
+
+
+
+
+# Exercise 1
+
+**Write a script that carries out a writeup of the sleep data**
+
+:::{.callout-tip}
+- use the `.Rhistory` file to retrieve things you have typed before
+:::
+
+
+
 # Projects
-- close RStudio
-- open RStudio
+- close & reopen RStudio
 - Projects >> New Project >> Existing directory >> browse to folder >> enter
-- close RStudio
-- open RStudio
+- close & reopen RStudio
 - Now the Projects dropdown has a menu entry for your Project
 - no need to set working directory
     - See that the Console is now in the right place 

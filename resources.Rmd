@@ -1,5 +1,5 @@
 # Resources
 
-- https://psyteachr.github.io/
+- [https://psyteachr.github.io/](https://psyteachr.github.io/)
 
-- https://psyteachr.github.io/data-skills-v1/programming-basics.html
+- [https://psyteachr.github.io/data-skills-v1/programming-basics.html](https://psyteachr.github.io/data-skills-v1/programming-basics.html)

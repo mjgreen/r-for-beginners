@@ -1,0 +1,61 @@
+---
+title: "Sleep data writeup"
+author: "Matt"
+date: "2022-10-14"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+## Code 
+
+```{r, message=F}
+library(tidyverse)
+library(report)
+library(knitr)
+library(apaTables)
+```
+
+
+```{r}
+sleep_data <- read_csv("sleep_data.csv", show_col_types = FALSE)
+```
+
+```{r}
+g = ggplot(data=sleep_data, aes(x=group, y=extra)) +
+  geom_boxplot()
+```
+
+```{r}
+model <- t.test(extra ~ group, data = sleep_data)
+```
+
+```{r, message=F, warning=F}
+r = report_text(model)
+```
+
+```{r, message=F, warning=F}
+m = report_table(model)
+```
+
+
+## Results
+
+```{r, echo=F}
+g
+```
+
+
+`r summary(r)`
+
+
+
+```{r, echo=F}
+kable(m)
+```
+
+```{r, echo=F}
+kable(summary(m))
+```
+
